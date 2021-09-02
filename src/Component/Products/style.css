@@ -1,0 +1,90 @@
+.main-div{
+    margin-top:0px;
+    margin:20px;
+    width:70%;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+}
+.right-div{
+    margin-top:0px;
+    height:628px;
+    border:2px solid grey;
+    width:30%;
+    margin: 20px;
+    margin-top:41px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    overflow: auto;
+}
+.Product-div{
+    display:flex;
+    margin-top:22px;
+    border:2px solid grey;
+    height:280px;
+    width:375px;
+    padding-top:20px;
+    padding-left:10px;
+    flex-wrap: wrap;
+}
+.product-img{
+    padding:10px;
+}
+.button-style{
+    height:43px;
+    background-color: grey;
+    color:white;
+}
+.flex{
+    display:flex
+}
+.price,.name{
+    font-weight: bold;
+    color:grey;
+}
+.storage{
+    font-weight: bold;
+}
+.cart-div{
+ padding:10px;
+}
+.cart-item{
+    width:286px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding:10px;
+    
+}
+.remove-button{
+    color:red;
+    font-weight: bold;
+        background: transparent;
+        box-shadow: 0px 0px 0px transparent;
+        border: 0px solid transparent;
+        text-shadow: 0px 0px 0px transparent;
+      
+}
+.cart-text{
+    color:grey;
+    font-weight: bold;
+}
+.title{
+    font-size: 26px;
+    color:grey;
+    font-weight: bold;
+}
+.order-button{
+   font-size:27px;
+   margin-right:117px;
+   background-color: grey;
+   height:43px;
+   color:white;
+   width:162px;
+   float:right;
+}
+.Product-div img {
+    padding-right: 20px;
+}
