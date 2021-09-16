@@ -4,27 +4,27 @@ import "./style.css";
 export default class Products extends Component {
   constructor(props) {
     super(props);
-    this.state = { selectIndex: null };
+    this.state = { select:null };
   }
   handleAdd = () => {
     this.props.addCart(this.props.index);
   };
   render() {
+    const {name,price,storage,image}=this.props.products
     return (
       <>
-        <div className="parent-div">
+        <div className="parent-div" key={this.props.index}>
           <div>
             <div className="Product-div">
               <img
-                src={require(`../../images/${this.props.products.image}`).default}
-                alt={this.props.products.image}
-                key={this.props.index}
+                src={image}
+                alt={image}
                 height={200}
               />
               <div>
-                <p className="name">{this.props.products.name}</p>
-                <p className="price">${this.props.products.price}</p>
-                <p className="storage">({this.props.products.storage})</p>
+                <p className="name">{name}</p>
+                <p className="price">${price}</p>
+                <p className="storage">({storage})</p>
               </div>
               <div>
                 <button className="button-style" onClick={this.handleAdd}>
