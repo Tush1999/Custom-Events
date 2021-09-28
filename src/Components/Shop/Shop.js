@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Products from "../Products/Products";
 import Cart from "../Cart/Cart";
 import OrderSummary from "../OrderSummary/OrderSummary";
+
 const { v4: uuid_v4 } = require("uuid");
 
 export default class Shop extends Component {
@@ -13,7 +14,7 @@ export default class Shop extends Component {
       total: "",
     };
   }
-  addCart = (product_id) => {
+  addItem = (product_id) => {
     var item = this.props.products.filter((val) => val.id === product_id);
     let cartItem = { ...item[0], identity: uuid_v4() };
     this.setState(
@@ -21,7 +22,7 @@ export default class Shop extends Component {
       this.updateCart
     );
   };
-  deleteCart = (product_id) => {
+  deleteItem = (product_id) => {
     var cartItem = this.state.cart.filter((val) => val.identity !== product_id);
     this.setState((state) => ({ cart: [...cartItem] }), this.updateCart);
   };
@@ -44,14 +45,14 @@ export default class Shop extends Component {
         `Your order has been placed of Rs${this.state.sum} and total item - ${this.state.cart.length}`
       );
     }
-    var Product = this.props.products.map((value, index) => {
+    var productList = this.props.products.map((value, index) => {
       return (
         <>
           <Products
-            products={value}
+            item={value}
             index={index}
-            addCart={this.addCart}
-            key={index}
+            addItem={this.addItem}
+            key={uuid_v4()}
           />
         </>
       );
@@ -59,7 +60,7 @@ export default class Shop extends Component {
     return (
       <React.Fragment>
         <div className="flex">
-          <div className="main-div">{Product}</div>
+          <div className="main-div">{productList}</div>
           <div className="right-div">
             <div className="cart-div">
               {this.state.cart.length === 0 ? (
@@ -68,7 +69,7 @@ export default class Shop extends Component {
               {this.state.total ? (
                 <h1 className="title">CART: ${this.state.total}</h1>
               ) : null}
-              <Cart items={this.state.cart} deleteCart={this.deleteCart} />
+              <Cart items={this.state.cart} deleteItem={this.deleteItem} />
             </div>
           </div>
         </div>

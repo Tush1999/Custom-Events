@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types"
 
-export default function Cart({ items, deleteCart }) {
+export default function Cart({ items, deleteItem }) {
   let handleDelete = (id) => {
-    deleteCart(id);
+    deleteItem(id);
   };
   var cartItems = items.map((value, index) => {
     return (
       <div className="cart-item" key={index}>
-        <img src={value.image} alt={value.name} height={70} />
+        <img src={value.image} alt="iphone" height={70} />
         <p className="cart-text">
           {value.name} ${value.price} {value.storage}
         </p>
@@ -24,4 +25,8 @@ export default function Cart({ items, deleteCart }) {
   });
 
   return <div>{cartItems}</div>;
+}
+Cart.propTypes={
+  items:PropTypes.array,
+  handleDelete:PropTypes.func
 }

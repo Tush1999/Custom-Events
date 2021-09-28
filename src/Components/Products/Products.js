@@ -1,33 +1,32 @@
 import React, { Component } from "react";
 import "./style.css";
 
+import PropTypes from "prop-types";
+const { v4: uuid_v4 } = require("uuid");
+
 export default class Products extends Component {
   constructor(props) {
     super(props);
-    this.state = { select:null };
+    this.state = { select: null };
   }
-  handleAdd = () => {
-    this.props.addCart(this.props.index);
+  handleCart = () => {
+    this.props.addItem(this.props.index);
   };
   render() {
-    const {name,price,storage,image}=this.props.products
+    const { name, price, storage, image } = this.props.item;
     return (
       <>
-        <div className="parent-div" key={this.props.index}>
+        <div className="parent-div" key={uuid_v4()}>
           <div>
             <div className="Product-div">
-              <img
-                src={image}
-                alt={image}
-                height={200}
-              />
+              <img src={image} alt="iphone" height={200} />
               <div>
                 <p className="name">{name}</p>
                 <p className="price">${price}</p>
                 <p className="storage">({storage})</p>
               </div>
               <div>
-                <button className="button-style" onClick={this.handleAdd}>
+                <button className="button-style" onClick={this.handleCart}>
                   ADD TO CART
                 </button>
               </div>
@@ -38,3 +37,6 @@ export default class Products extends Component {
     );
   }
 }
+Products.propTypes = {
+  products: PropTypes.object,
+};
