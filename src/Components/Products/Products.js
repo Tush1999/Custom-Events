@@ -19,7 +19,7 @@ export default class Products extends Component {
         <div className="parent-div" key={uuid_v4()}>
           <div>
             <div className="Product-div">
-              <img src={image} alt="iphone" height={200} />
+              <img src={image} alt="iphone" className="product-image" />
               <div>
                 <p className="name">{name}</p>
                 <p className="price">${price}</p>
