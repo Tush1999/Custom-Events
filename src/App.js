@@ -1,9 +1,7 @@
-import Shop from './Component/Shop/Shop'
-
+import Shop from "./Components/Shop/Shop";
+import Data from "./Data";
 function App() {
-  return (
-      <Shop />
-  );
+  return <Shop products={Data} />;
 }
 
 export default App;
